@@ -1,0 +1,186 @@
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     background-color: #e9e9e9;
+//     font-family: sans-serif;
+//     font-size: 20px;
+// }
+
+// body {
+//     height: 100vh;
+//     width: 100vw;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// @mixin shadow {
+//     box-shadow: -6px -6px 9px #fff, 6px 6px 9px rgba(#000, 0.4);
+// }
+
+// @mixin shadow-inset {
+//     box-shadow: inset -6px -6px 9px #fff, inset 6px 6px 9px rgba(#000, 0.4);
+// }
+
+// main {
+//     @include shadow();
+//     padding: 2rem;
+//     border-radius: 30px;
+
+
+// input, button {
+//     outline: none;
+// }
+
+// input::-webkit-outer-spin-button,
+// input::-webkit-inner-spin-button {
+//     -webkit-appearance: none;
+// }
+// input[type=number] {
+//     -moz-appearance: textfield;
+// }
+// input {
+//     @include shadow-inset();
+//     width: 380px;
+//     height: 60px;
+//     padding: 16px 32px;
+//     text-align: right;
+//     border: none;
+//     border-radius: 30px;
+//     text-shadow: -1px -1px 2px #fff, 2px 2px 2px rgba(#000, 0.4);
+// }
+// .keys {
+//     display: grid;
+//     grid-template-columns: repeat(4, 1fr);
+//     grid-gap: 0.8rem;
+//     margin-top: 20px;
+// }
+// button {
+//     @include shadow();
+//     border-radius: 30px;
+//     border: none;
+//     width: 60px;
+//     height: 60px;
+//     cursor: pointer;
+//     background: #e9e9e9;
+//     &:hover {
+//         background-color: #ccc;
+//     }
+//     &:active {
+//         @include shadow-inset();
+//     }
+// }
+// .op__key, eq__key {
+//     color: #ff652f;
+// }
+// }
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin flex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin shadow-l-t() {
+    box-shadow: 6px 6px 9px rgba(131, 130, 130, 0.7),  -6px -6px 9px #fff;
+}
+
+@mixin shadow-inset() {
+    box-shadow: inset 6px 6px 9px rgba(#000, 0.3),inset  -6px -6px 9px rgba(255, 255, 255, 1);
+}
+
+ 
+body {
+    background-color: rgb(243, 243, 243);
+}
+.wrapper {
+    margin-top: 30px;
+    width: 100%;
+    height: 100vh;
+    @include flex();
+    .box {
+        width: 500px;
+        padding: 25px;
+        border: 1px solid #444;
+        border: none;
+        border-radius: 30px;
+        @include shadow-l-t();
+        
+        .input {
+            width: 85%;
+            margin-left: 27px;
+            margin-right: 20px;
+            margin-top: 30px;
+            border: none;
+            padding: 20px 10px;
+            border-radius: 30px;
+            @include shadow-inset();
+            cursor: pointer;
+            font-size: 20px;
+            text-align: center;
+            outline: none;
+            background-color:  rgb(243, 243, 243);
+        }
+        .buttons {
+            margin-top: 20px;
+            // margin-left: -27px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            
+            
+            .btn {
+                width: 60px;
+                height: 60px;
+                // padding: 25px 15px;
+                // margin-left: 20px;
+                margin-bottom: 20px;
+                outline: none;
+                border: none;
+                border-radius: 50%;
+                font-size: 20px;
+                @include shadow-l-t();
+                cursor: pointer;
+                &:hover {
+                    background-color: #777;
+                    color: #fff;
+                }
+            }
+            .bg-orange {
+                color: tomato;
+            }
+            .active {
+                background-color: #777;
+                color: #fff;
+            }
+            .upper {
+                font-size: 12px;
+                margin-top: -25px;
+                margin-left: 20px;
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 576px){
+    .wrapper {
+        .box{
+            .buttons{
+                .btn{
+                    width: 40px;
+                    height: 40px;
+                    font-size: 14px;
+
+                }
+            }
+        }
+    }
+}
